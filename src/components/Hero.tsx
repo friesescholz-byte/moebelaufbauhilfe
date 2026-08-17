@@ -4,19 +4,19 @@ import { BRAND_DATA } from '../data/content';
 
 const HERO_SLIDES = [
   {
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
+  },
+  {
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
+  },
+  {
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
+  },
+  {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
   },
   {
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/653710062_26274519165530527_383173677158444467_n_ergebnis.webp",
-  },
-  {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-mart-production-7491109_ergebnis.webp",
-  },
-  {
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/652123559_26236032182712559_2456315385345536829_n_ergebnis.webp",
-  },
-  {
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-6508346_ergebnis.webp",
   }
 ];
 
@@ -145,14 +145,14 @@ export const Hero = () => {
 
           </div>
 
-          {/* Right Area: Open, unobstructed view of the background imagery */}
+          {/* Right Area: Open view */}
           <div className="lg:col-span-5 hidden lg:block" />
 
         </div>
 
       </div>
 
-      {/* Decorative Wave Divider at the bottom for an ultra-smooth designer transition */}
+      {/* Decorative Wave Divider at the bottom */}
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none z-10 pointer-events-none">
         <svg 
           viewBox="0 0 1200 120" 

@@ -17,7 +17,7 @@ export const SIMPLE_SERVICES = [
     id: "pax-schraenke",
     title: "Schränke & IKEA PAX",
     desc: "Große Kleiderschränke, Schiebetüren & Kommoden. Alles gerade ausgerichtet, Türen schließen perfekt.",
-    imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-thisismcpeter-38697208_ergebnis.webp",
+    imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
     badge: "Häufig gebucht",
     points: ["IKEA PAX, Poco, Roller & Co.", "Schiebetüren & Dämpfer", "Sicher an der Wand befestigt"]
   },
@@ -25,7 +25,7 @@ export const SIMPLE_SERVICES = [
     id: "spieltuerrme",
     title: "Spieltürme & Klettergerüste",
     desc: "Kompletter Aufbau im Garten inklusive stabiler Bodenverankerung. 100% sicher für die Kinder.",
-    imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/653710062_26274519165530527_383173677158444467_n_ergebnis.webp",
+    imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
     badge: "Garten & Kinder",
     points: ["Wickey, FATMOOSE & Co.", "Stabile Bodenanker", "Spart Ihnen 2 Tage Arbeit"]
   },
@@ -48,10 +48,47 @@ export const SIMPLE_SERVICES = [
 ];
 
 export const ALL_GALLERY_IMAGES = [
+  // New Drive Projects (Authentic Real Works by Nikolai)
+  {
+    id: "drive-1",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Spielturm und Klettergerüst im Garten"
+  },
+  {
+    id: "drive-2",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Kleiderschrank und Schrankwand Montage"
+  },
+  {
+    id: "drive-3",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260704-WA0000_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Fertig montiertes Möbelstück"
+  },
+  {
+    id: "drive-4",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Möbelaufbau vor Ort"
+  },
+  {
+    id: "drive-5",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0001_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Schrank und Regale passgenau im Lot"
+  },
+  {
+    id: "drive-6",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0004_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Professionelle Schrankmontage"
+  },
+  {
+    id: "drive-7",
+    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0015_ergebnis.webp",
+    alt: "Möbelaufbauhilfe Nienburg - Montageergebnis Nikolai"
+  },
+  // Authentic Finished Works
   {
     id: "img-1",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Fertig montierter Kleiderschrank"
+    alt: "Möbelaufbauhilfe Nienburg - Fertig montierter PAX Kleiderschrank"
   },
   {
     id: "img-2",
@@ -66,7 +103,7 @@ export const ALL_GALLERY_IMAGES = [
   {
     id: "img-4",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/660266552_4380087652136490_4476745881066477129_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Schiebetürenschrank Aufbau"
+    alt: "Möbelaufbauhilfe Nienburg - Schweberahmen Schrank"
   },
   {
     id: "img-5",
@@ -76,7 +113,7 @@ export const ALL_GALLERY_IMAGES = [
   {
     id: "img-6",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-thisismcpeter-38697208_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - IKEA PAX Schrank und Regalsystem"
+    alt: "Möbelaufbauhilfe Nienburg - Schrank und Regalsystem"
   },
   {
     id: "img-7",
@@ -100,33 +137,8 @@ export const ALL_GALLERY_IMAGES = [
   },
   {
     id: "img-11",
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-7005283_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Präzise Verschraubung und Justierung"
-  },
-  {
-    id: "img-12",
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-8146321_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Saubere Montagearbeit"
-  },
-  {
-    id: "img-13",
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-athena-5805491_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Modernes Wohnen und Möbel"
-  },
-  {
-    id: "img-14",
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-doan-thanh-binh-2147604563-36887750_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Boxspringbett Schlafzimmer"
-  },
-  {
-    id: "img-15",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-thoinamcao-30002781_ergebnis.webp",
     alt: "Möbelaufbauhilfe Nienburg - Garten Lounge und Terrassenmöbel"
-  },
-  {
-    id: "img-16",
-    url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-lisa-anna-901356985-19846397_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Stressfreie Einrichtung für die Familie"
   }
 ];
 

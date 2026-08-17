@@ -9,7 +9,7 @@ export const GallerySection = () => {
   // Manual scroll with working arrows
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const cardWidth = 380;
+      const cardWidth = 340;
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -cardWidth * 1.5 : cardWidth * 1.5,
         behavior: 'smooth'
@@ -17,7 +17,7 @@ export const GallerySection = () => {
     }
   };
 
-  // We show the 16 images in a smooth scrolling track
+  // We show all images in a smooth scrolling track
   const displayImages = [...ALL_GALLERY_IMAGES, ...ALL_GALLERY_IMAGES];
 
   return (
@@ -68,12 +68,13 @@ export const GallerySection = () => {
             <div
               key={`${img.id}-${idx}`}
               onClick={() => setSelectedImg(img.url)}
-              className="flex-shrink-0 w-[280px] sm:w-[360px] lg:w-[420px] h-[260px] sm:h-[320px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 hover:border-brand-teal-400 transition-all duration-300 relative group cursor-pointer bg-slate-900"
+              className="flex-shrink-0 w-[240px] sm:w-[300px] lg:w-[350px] h-[320px] sm:h-[380px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border-2 border-slate-200 hover:border-brand-teal-400 transition-all duration-300 relative group cursor-pointer bg-slate-900 flex items-center justify-center"
             >
+              {/* Image rendered with unified framing */}
               <img
                 src={img.url}
                 alt={img.alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
               />
@@ -89,14 +90,14 @@ export const GallerySection = () => {
         </div>
       </div>
 
-      {/* Fullscreen Lightbox Zoom Modal */}
+      {/* Fullscreen Lightbox Zoom Modal (Handles both portrait & landscape perfectly) */}
       {selectedImg && (
         <div 
           className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4"
           onClick={() => setSelectedImg(null)}
         >
           <div 
-            className="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl relative border-2 border-slate-200 animate-in fade-in zoom-in-95 duration-200"
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl relative border-2 border-slate-200 animate-in fade-in zoom-in-95 duration-200 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -108,22 +109,22 @@ export const GallerySection = () => {
               <X className="w-6 h-6" />
             </button>
 
-            {/* Large Image */}
-            <div className="max-h-[72vh] bg-slate-950 flex items-center justify-center">
+            {/* Large Image Viewport */}
+            <div className="flex-1 max-h-[72vh] bg-slate-950 flex items-center justify-center p-2">
               <img
                 src={selectedImg}
                 alt="Möbelaufbauhilfe Nienburg - Großansicht"
-                className="max-h-[72vh] w-full object-contain"
+                className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl"
               />
             </div>
 
             {/* Modal Bottom CTA Bar */}
-            <div className="p-6 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-5 sm:p-6 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
               <div>
-                <div className="font-extrabold text-lg text-slate-900">
+                <div className="font-extrabold text-base sm:text-lg text-slate-950">
                   Möbelaufbauhilfe Nienburg – von Nikolai
                 </div>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-slate-500 font-semibold">
                   Schnell. Sauber. Stressfrei.
                 </div>
               </div>
@@ -132,7 +133,7 @@ export const GallerySection = () => {
                 href={BRAND_DATA.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base shadow-lg transition-all hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base shadow-lg transition-all hover:scale-105"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Preis für ähnlichen Aufbau per WhatsApp anfragen</span>
