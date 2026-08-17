@@ -26,46 +26,51 @@ export const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 4500);
+    }, 5500);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative min-h-[90vh] lg:min-h-[94vh] flex items-center pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-[#FCFAF6]">
       
-      {/* Background Slideshow Canvas on Right Half with Designer Blend */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Slideshow Canvas on Right Half with Cinematic Ultra-Smooth Blend */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         
-        {/* Crossfading Background Images */}
-        {HERO_SLIDES.map((slide, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              currentSlide === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-            } transition-transform duration-[7000ms]`}
-          >
-            <img
-              src={slide.url}
-              alt="Möbelaufbauhilfe Nienburg"
-              className="w-full h-full object-cover object-center lg:object-right"
-              loading={idx === 0 ? "eager" : "lazy"}
-            />
-          </div>
-        ))}
+        {/* Cinematic Crossfading Background Images */}
+        {HERO_SLIDES.map((slide, idx) => {
+          const isActive = currentSlide === idx;
+          return (
+            <div
+              key={idx}
+              className={`absolute inset-0 transition-opacity duration-[2200ms] ease-in-out will-change-[opacity,transform] ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            >
+              <img
+                src={slide.url}
+                alt="Möbelaufbauhilfe Nienburg"
+                className={`w-full h-full object-cover object-center lg:object-right transition-transform duration-[8000ms] ease-out will-change-transform ${
+                  isActive ? 'scale-100 translate-x-0' : 'scale-108 translate-x-2'
+                }`}
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          );
+        })}
 
         {/* Designer Horizontal Gradient Blend (Left Solid to Right Open Image) */}
-        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#FCFAF6] via-[#FCFAF6]/90 via-48% to-transparent/15" />
-        <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 bg-[#FCFAF6]" />
+        <div className="hidden lg:block absolute inset-0 z-20 bg-gradient-to-r from-[#FCFAF6] via-[#FCFAF6]/90 via-48% to-transparent/15 pointer-events-none" />
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 z-20 bg-[#FCFAF6] pointer-events-none" />
 
         {/* Mobile / Tablet Blend */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-[#FCFAF6] via-[#FCFAF6]/95 via-65% to-[#FCFAF6]/60" />
+        <div className="lg:hidden absolute inset-0 z-20 bg-gradient-to-b from-[#FCFAF6] via-[#FCFAF6]/95 via-65% to-[#FCFAF6]/60 pointer-events-none" />
 
         {/* Designer Transition Downwards into the Next Section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 z-20 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
       </div>
 
       {/* Hero Foreground Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
@@ -153,7 +158,7 @@ export const Hero = () => {
       </div>
 
       {/* Decorative Wave Divider at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none z-10 pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none z-30 pointer-events-none">
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
