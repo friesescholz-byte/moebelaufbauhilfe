@@ -1,4 +1,4 @@
-import { Phone, MessageSquare, MapPin, Navigation, CheckCircle2 } from 'lucide-react';
+import { Phone, MessageSquare, MapPin } from 'lucide-react';
 import { BRAND_DATA } from '../data/content';
 
 export const QuickContactSection = () => {
@@ -53,33 +53,26 @@ export const QuickContactSection = () => {
 
         </div>
 
-        {/* Modern, Chic Service Radius & Einsatzgebiet Hub (Clean Designer Layout) */}
+        {/* Modern, Chic Service Radius & Einsatzgebiet Hub */}
         <div className="max-w-5xl mx-auto bg-slate-950/40 backdrop-blur-md rounded-3xl p-6 sm:p-10 border-2 border-white/20 shadow-2xl">
           
           {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/15 mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-black text-amber-300 uppercase tracking-wider block">
-                  Regional & Schnell vor Ort
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black text-white">
-                  Mein Einsatzgebiet rund um Nienburg (Weser)
-                </h3>
-              </div>
+          <div className="flex items-center gap-3 pb-6 border-b border-white/15 mb-8">
+            <div className="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center font-black">
+              <MapPin className="w-6 h-6" />
             </div>
-
-            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-2xl border border-white/20 text-xs sm:text-sm font-extrabold text-white self-start sm:self-auto">
-              <Navigation className="w-4 h-4 text-emerald-400" />
-              <span>Bis zu 35 km Umkreis</span>
+            <div>
+              <span className="text-xs font-black text-amber-300 uppercase tracking-wider block">
+                Regional & Schnell vor Ort
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white">
+                Mein Einsatzgebiet rund um Nienburg (Weser)
+              </h3>
             </div>
           </div>
 
           {/* 3 Regional Hub Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             
             {/* Card 1 */}
             <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
@@ -123,12 +116,6 @@ export const QuickContactSection = () => {
               </p>
             </div>
 
-          </div>
-
-          {/* Bottom Reassurance Banner */}
-          <div className="flex items-center gap-3 pt-4 text-xs sm:text-sm font-semibold text-slate-200">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-            <span>Faire, transparente Festpreise – egal ob Sie mitten in der Stadt oder auf dem Land wohnen!</span>
           </div>
 
         </div>

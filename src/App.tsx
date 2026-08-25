@@ -5,6 +5,7 @@ import { SimpleStepsSection } from './components/SimpleStepsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { GallerySection } from './components/GallerySection';
 import { QuickContactSection } from './components/QuickContactSection';
+import { ContactFormSection } from './components/ContactFormSection';
 import { TestimonialsFAQ } from './components/TestimonialsFAQ';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
@@ -29,6 +30,7 @@ export function App() {
         <ServicesSection />
         <GallerySection />
         <QuickContactSection />
+        <ContactFormSection />
         <TestimonialsFAQ />
         <CTASection />
       </main>

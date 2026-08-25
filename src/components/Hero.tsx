@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, MessageSquare, Wrench, CheckCircle2, Star, ShieldCheck } from 'lucide-react';
+import { Phone, MessageSquare, Wrench } from 'lucide-react';
 import { BRAND_DATA } from '../data/content';
 
 const HERO_SLIDES = [
@@ -108,7 +108,7 @@ export const Hero = () => {
             </div>
 
             {/* Giant Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full max-w-lg mb-7">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full max-w-lg">
               
               {/* WhatsApp Button */}
               <a
@@ -130,22 +130,6 @@ export const Hero = () => {
                 <span>{BRAND_DATA.phoneFormatted}</span>
               </a>
 
-            </div>
-
-            {/* 3 Quick Checkpoints */}
-            <div className="grid grid-cols-3 gap-2.5 w-full max-w-lg">
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold text-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Werkzeug da</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold text-slate-800">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Fester Preis</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold text-slate-800">
-                <Star className="w-4 h-4 text-amber-500 fill-amber-500 flex-shrink-0" />
-                <span>Besenrein</span>
-              </div>
             </div>
 
           </div>

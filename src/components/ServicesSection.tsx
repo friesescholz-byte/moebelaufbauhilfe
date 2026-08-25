@@ -26,7 +26,7 @@ export const ServicesSection = () => {
               key={service.id}
               className="bg-white rounded-3xl overflow-hidden border-2 border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              {/* Giant Image Header */}
+              {/* Giant Image Header (Clean without overlay badges) */}
               <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
                 <img 
                   src={service.imageUrl} 
@@ -34,9 +34,6 @@ export const ServicesSection = () => {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-amber-300 font-extrabold text-xs px-3.5 py-1.5 rounded-full border border-white/20">
-                  {service.badge}
-                </div>
               </div>
 
               {/* Content Box with Large Readable Text */}
