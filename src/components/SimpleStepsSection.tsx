@@ -151,7 +151,7 @@ export const SimpleStepsSection = () => {
               Haben Sie Möbel, die aufgebaut werden müssen?
             </div>
             <div className="text-slate-300 text-sm sm:text-base">
-              Ich bin im gesamten Landkreis Nienburg und bis zu 35 km Umkreis für Sie da.
+              Ich bin im gesamten Landkreis Nienburg und bis zu 50 km Umkreis für Sie da.
             </div>
           </div>
 

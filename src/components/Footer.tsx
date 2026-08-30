@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li className="flex items-start gap-2.5 text-slate-400">
                 <MapPin className="w-4 h-4 text-brand-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Nienburg (Weser) & bis zu 35 km Umkreis</span>
+                <span>Nienburg (Weser) & bis zu 50 km Umkreis</span>
               </li>
             </ul>
           </div>
