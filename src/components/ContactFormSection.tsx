@@ -22,11 +22,15 @@ declare global {
   }
 }
 
+// Check for user-provided production Turnstile Site Key from environment
+const TURNSTILE_SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined)?.trim() || '';
+
 export const ContactFormSection: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState(''); // Invisible Bot Trap
   const [files, setFiles] = useState<File[]>([]);
   const [turnstileToken, setTurnstileToken] = useState<string>('');
   
@@ -37,8 +41,12 @@ export const ContactFormSection: React.FC = () => {
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
 
-  // Initialize Cloudflare Turnstile
+  // Initialize Cloudflare Turnstile ONLY if a real production key is configured (avoiding the "Nur zu Testzwecken" notice)
   useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || TURNSTILE_SITE_KEY.startsWith('1x')) {
+      return;
+    }
+
     const container = turnstileContainerRef.current;
     if (!container) return;
 
@@ -48,7 +56,7 @@ export const ContactFormSection: React.FC = () => {
       if (window.turnstile && container && !widgetIdRef.current && isMounted) {
         try {
           widgetIdRef.current = window.turnstile.render(container, {
-            sitekey: '1x00000000000000000000AA', // Official Cloudflare Turnstile Always-Pass Sitekey
+            sitekey: TURNSTILE_SITE_KEY,
             callback: (token: string) => {
               if (isMounted) setTurnstileToken(token);
             },
@@ -107,6 +115,13 @@ export const ContactFormSection: React.FC = () => {
     setErrorMessage(null);
     setIsSubmitting(true);
 
+    // Bot trap check
+    if (honeypot.trim().length > 0) {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      return;
+    }
+
     try {
       // Build FormData for multipart request (including uploaded files)
       const formData = new FormData();
@@ -114,6 +129,7 @@ export const ContactFormSection: React.FC = () => {
       formData.append('phone', phone.trim());
       formData.append('email', email.trim());
       formData.append('message', message.trim());
+      formData.append('honeypot', honeypot);
       formData.append('turnstileToken', turnstileToken || 'direct-web-token');
       formData.append('cf-turnstile-response', turnstileToken || 'direct-web-token');
 
@@ -137,13 +153,11 @@ export const ContactFormSection: React.FC = () => {
         });
         setSubmitted(true);
       } else {
-        // If Worker endpoint returned an error
         const msg = result?.error || 'Fehler beim Senden. Bitte rufen Sie uns kurz an oder schreiben Sie per WhatsApp.';
         setErrorMessage(msg);
       }
     } catch (err) {
       console.warn('Network submission error, fallback enabled:', err);
-      // Fallback graceful handling
       confetti({
         particleCount: 60,
         spread: 60,
@@ -167,6 +181,8 @@ ${files.length > 0 ? `(Ich sende dir gleich ${files.length} Foto(s) hier im Chat
 
     return `https://wa.me/49${BRAND_DATA.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(text)}`;
   };
+
+  const hasRealTurnstileKey = Boolean(TURNSTILE_SITE_KEY && !TURNSTILE_SITE_KEY.startsWith('1x'));
 
   return (
     <section id="kontakt" className="py-16 sm:py-24 bg-[#FCFAF6] border-t border-slate-200 relative">
@@ -238,6 +254,18 @@ ${files.length > 0 ? `(Ich sende dir gleich ${files.length} Foto(s) hier im Chat
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               
+              {/* Invisible Honeypot field for bot protection */}
+              <input
+                type="text"
+                name="website_url_check"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
               {errorMessage && (
                 <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-600 mt-0.5" />
@@ -364,16 +392,25 @@ ${files.length > 0 ? `(Ich sende dir gleich ${files.length} Foto(s) hier im Chat
                 )}
               </div>
 
-              {/* Row 5: Cloudflare Turnstile Widget Container */}
-              <div className="pt-2 flex flex-col items-start gap-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-600">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Spamschutz powered by Cloudflare Turnstile</span>
-                </div>
-                <div 
-                  ref={turnstileContainerRef} 
-                  className="min-h-[65px] flex items-center"
-                />
+              {/* Row 5: Security / Turnstile Row */}
+              <div className="pt-2">
+                {hasRealTurnstileKey ? (
+                  <div className="flex flex-col items-start gap-2">
+                    <div className="flex items-center gap-2 text-xs font-bold text-slate-600">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      <span>Spamschutz powered by Cloudflare Turnstile</span>
+                    </div>
+                    <div 
+                      ref={turnstileContainerRef} 
+                      className="min-h-[65px] flex items-center"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 py-2 px-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>SSL-verschlüsselte Übertragung & integrierter Cloudflare Spamschutz</span>
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons */}

@@ -52,8 +52,21 @@ export default {
               photoNames.push(`${item.name} (${Math.round(item.size / 1024)} KB)`);
             }
           }
+          const honeypot = (formData.get("honeypot") as string) || "";
+          if (honeypot && honeypot.trim().length > 0) {
+            return new Response(JSON.stringify({ success: true, message: "Erfolgreich" }), {
+              status: 200,
+              headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+            });
+          }
         } else {
           const body = (await request.json()) as Record<string, unknown>;
+          if (body.honeypot && String(body.honeypot).trim().length > 0) {
+            return new Response(JSON.stringify({ success: true, message: "Erfolgreich" }), {
+              status: 200,
+              headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+            });
+          }
           name = String(body.name || "");
           phone = String(body.phone || "");
           email = String(body.email || "");
