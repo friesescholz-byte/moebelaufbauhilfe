@@ -18,6 +18,8 @@ export const SIMPLE_SERVICES = [
     title: "Schränke & IKEA PAX",
     desc: "Große Kleiderschränke, Schiebetüren & Kommoden. Alles gerade ausgerichtet, Türen schließen perfekt.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
+    imageAlt: "Fachgerechter Aufbau von IKEA PAX Kleiderschränken in Nienburg Weser",
+    imageTitle: "IKEA PAX Schrank Montage Service Nienburg – Möbelaufbauhilfe Nikolai",
     badge: "Häufig gebucht",
     points: ["IKEA PAX, Poco, Roller & Co.", "Schiebetüren & Dämpfer", "Sicher an der Wand befestigt"]
   },
@@ -26,6 +28,8 @@ export const SIMPLE_SERVICES = [
     title: "Spieltürme & Klettergerüste",
     desc: "Kompletter Aufbau im Garten inklusive stabiler Bodenverankerung. 100% sicher für die Kinder.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
+    imageAlt: "Garten Spielturm und Klettergerüst Montage im Landkreis Nienburg",
+    imageTitle: "Professionelle Spielturm Montage im Garten – Möbelaufbauhilfe Nienburg",
     badge: "Garten & Kinder",
     points: ["Wickey, FATMOOSE & Co.", "Stabile Bodenanker", "Spart Ihnen 2 Tage Arbeit"]
   },
@@ -34,6 +38,8 @@ export const SIMPLE_SERVICES = [
     title: "Betten & Schlafzimmer",
     desc: "Boxspringbetten, Polsterbetten und Nachttische. Stabil, geräuschlos und knarrfrei aufgebaut.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-mart-production-7491109_ergebnis.webp",
+    imageAlt: "Boxspringbett und Schlafzimmermöbel fachgerecht montiert in Nienburg",
+    imageTitle: "Boxspringbett & Polsterbett Montage Nienburg – Knarrfrei und stabil",
     badge: "Schlafbereich",
     points: ["Boxspring- & Polsterbetten", "Lattenroste & Kopfteile", "Sofort bezugsfertig"]
   },
@@ -42,6 +48,8 @@ export const SIMPLE_SERVICES = [
     title: "Wohnwände, Tische & Garten",
     desc: "Sideboards, Esstische, TV-Halterungen, Wandregale und wetterfeste Gartenmöbel.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/652123559_26236032182712559_2456315385345536829_n_ergebnis.webp",
+    imageAlt: "Wohnwand, Hängeschränke und Sideboard Montage in Nienburg Weser",
+    imageTitle: "Wohnwand & Regalsysteme Montage im Lot – Möbelaufbauhilfe Nikolai",
     badge: "Wohnen & Garten",
     points: ["Exakt in der Waage", "Wandbohrungen & Dübel", "Garten-Lounges & Pavillons"]
   }
@@ -52,93 +60,111 @@ export const ALL_GALLERY_IMAGES = [
   {
     id: "drive-1",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Spielturm und Klettergerüst im Garten"
+    alt: "Möbelaufbauhilfe Nienburg - Spielturm und Klettergerüst im Garten fachgerecht verankert",
+    title: "Spielturm & Klettergerüst Montage Garten Nienburg"
   },
   {
     id: "drive-2",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Kleiderschrank und Schrankwand Montage"
+    alt: "Möbelaufbauhilfe Nienburg - Großer Kleiderschrank und Schrankwand passgenau aufgebaut",
+    title: "Kleiderschrank & PAX Montage Nienburg"
   },
   {
     id: "drive-3",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260704-WA0000_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Fertig montiertes Möbelstück"
+    alt: "Möbelaufbauhilfe Nienburg - Fertig montiertes Möbelstück sauber ausgerichtet",
+    title: "Möbelaufbau Nienburg Referenzprojekt"
   },
   {
     id: "drive-4",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Möbelaufbau vor Ort"
+    alt: "Möbelaufbauhilfe Nienburg - Präzise Möbelmontage vor Ort beim Kunden",
+    title: "Möbelaufbau vor Ort im Landkreis Nienburg"
   },
   {
     id: "drive-5",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0001_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Schrank und Regale passgenau im Lot"
+    alt: "Möbelaufbauhilfe Nienburg - Schrank und Regale passgenau im Lot montiert",
+    title: "Schrankwand und Regalsystem im Lot montiert"
   },
   {
     id: "drive-6",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0004_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Professionelle Schrankmontage"
+    alt: "Möbelaufbauhilfe Nienburg - Professionelle Schrankmontage mit Schiebetüren",
+    title: "Schiebetürenschrank Montage Nienburg"
   },
   {
     id: "drive-7",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0015_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Montageergebnis Nikolai"
+    alt: "Möbelaufbauhilfe Nienburg - Sauberes Montageergebnis von Handwerker Nikolai",
+    title: "Fachgerechte Möbelmontage Ergebnis Nikolai"
   },
   // Authentic Finished Works
   {
     id: "img-1",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Fertig montierter PAX Kleiderschrank"
+    alt: "Möbelaufbauhilfe Nienburg - Fertig montierter PAX Kleiderschrank mit Scharnieren",
+    title: "IKEA PAX Kleiderschrank Montage Nienburg"
   },
   {
     id: "img-2",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/652123559_26236032182712559_2456315385345536829_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Wohnwand und Hängeschrank Montage"
+    alt: "Möbelaufbauhilfe Nienburg - Wohnwand und Hängeschrank fachgerecht an Wand verdübelt",
+    title: "Wohnwand & Hängeschrank Montage an Wand"
   },
   {
     id: "img-3",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/653710062_26274519165530527_383173677158444467_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Spielturm und Kinderzimmer Möbel"
+    alt: "Möbelaufbauhilfe Nienburg - Spielturm mit Rutsche und Kletterleiter im Garten",
+    title: "Garten Kletterturm & Spielturm Aufbau"
   },
   {
     id: "img-4",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/660266552_4380087652136490_4476745881066477129_n_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Schweberahmen Schrank"
+    alt: "Möbelaufbauhilfe Nienburg - Schwebetürenschrank Montage im Schlafzimmer",
+    title: "Schwebetürenschrank Montage Schlafzimmer"
   },
   {
     id: "img-5",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-mart-production-7491109_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Bett und Schlafzimmer Möbelmontage"
+    alt: "Möbelaufbauhilfe Nienburg - Hochwertiges Bett und Schlafzimmer Möbelaufbau",
+    title: "Bettaufbau und Schlafzimmereinrichtung Nienburg"
   },
   {
     id: "img-6",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-thisismcpeter-38697208_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Schrank und Regalsystem"
+    alt: "Möbelaufbauhilfe Nienburg - Garderobe und offenes Regalsystem",
+    title: "Garderobenschrank und Regalsystem Aufbau"
   },
   {
     id: "img-7",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/Screenshot%202026-08-17%20142609_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Kundenfeedback und Ergebnis"
+    alt: "Möbelaufbauhilfe Nienburg - Zufriedene Kunden und fertige Montagen",
+    title: "Kundenbewertung & Referenz Möbelaufbau Nienburg"
   },
   {
     id: "img-8",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/Screenshot%202026-08-17%20142723_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Zuverlässige Montage vor Ort"
+    alt: "Möbelaufbauhilfe Nienburg - Zuverlässiger Montageservice vor Ort",
+    title: "Montageservice vor Ort in Nienburg Weser"
   },
   {
     id: "img-9",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-419907350-36038731_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Fertig eingerichtetes Wohnzimmer"
+    alt: "Möbelaufbauhilfe Nienburg - Modern eingerichtetes Wohnzimmer nach Montage",
+    title: "Wohnzimmermöbel fertig aufgebaut"
   },
   {
     id: "img-10",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-6508346_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Professionelles Werkzeug und Handwerk"
+    alt: "Möbelaufbauhilfe Nienburg - Professionelles Handwerkswerkzeug für schnellen Aufbau",
+    title: "Eigenes Profi-Werkzeug von Nikolai"
   },
   {
     id: "img-11",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-thoinamcao-30002781_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Garten Lounge und Terrassenmöbel"
+    alt: "Möbelaufbauhilfe Nienburg - Garten Lounge und Terrassenmöbel Montage",
+    title: "Gartenmöbel und Lounge Aufbau"
   }
 ];
 

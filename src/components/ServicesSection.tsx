@@ -26,13 +26,15 @@ export const ServicesSection = () => {
               key={service.id}
               className="bg-white rounded-3xl overflow-hidden border-2 border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              {/* Giant Image Header (Clean without overlay badges) */}
+              {/* Giant Image Header (Clean without overlay badges, with rich SEO alt and title) */}
               <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
                 <img 
                   src={service.imageUrl} 
-                  alt={service.title} 
+                  alt={service.imageAlt || service.title} 
+                  title={service.imageTitle || service.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -64,6 +66,7 @@ export const ServicesSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-brand-teal-50 hover:bg-brand-teal-500 text-brand-teal-800 hover:text-white border-2 border-brand-teal-300 hover:border-brand-teal-500 font-black text-base shadow-sm transition-all"
+                  title={`${service.title} – Festpreis per WhatsApp anfragen`}
                 >
                   <MessageSquare className="w-5 h-5" />
                   <span>Dafür Festpreis anfragen</span>

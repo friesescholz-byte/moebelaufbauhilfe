@@ -5,18 +5,28 @@ import { BRAND_DATA } from '../data/content';
 const HERO_SLIDES = [
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
+    alt: "IKEA PAX Kleiderschrank und Schrankwand fachgerecht montiert in Nienburg Weser",
+    title: "IKEA PAX Kleiderschrank Montage Nienburg – Möbelaufbauhilfe Nikolai"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
+    alt: "Spielturm und Klettergerüst für Kinder im Garten aufgebaut – Möbelaufbauhilfe Nienburg",
+    title: "Garten Spielturm Montage Landkreis Nienburg – Nikolai"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
+    alt: "Möbelaufbau vor Ort beim Kunden in Nienburg Weser und 50 km Umkreis",
+    title: "Fachgerechter Möbelaufbau vor Ort in Nienburg"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
+    alt: "Schrankaufbau und Möbelmontage zum fairen Festpreis in Nienburg und Umgebung",
+    title: "Kleiderschrank Montage Festpreis Nienburg"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-mart-production-7491109_ergebnis.webp",
+    alt: "Bettaufbau und Schlafzimmermöbel fachgerecht und knarrfrei montiert",
+    title: "Bettaufbau und Schlafzimmermöbel Montage Nienburg"
   }
 ];
 
@@ -48,11 +58,13 @@ export const Hero = () => {
             >
               <img
                 src={slide.url}
-                alt="Möbelaufbauhilfe Nienburg"
+                alt={slide.alt}
+                title={slide.title}
                 className={`w-full h-full object-cover object-center lg:object-right transition-transform duration-[8000ms] ease-out will-change-transform ${
                   isActive ? 'scale-100 translate-x-0' : 'scale-108 translate-x-2'
                 }`}
                 loading={idx === 0 ? "eager" : "lazy"}
+                decoding="async"
               />
             </div>
           );
@@ -80,7 +92,7 @@ export const Hero = () => {
             {/* Region Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal-50 border border-brand-teal-200/80 text-brand-teal-800 text-sm font-extrabold mb-5 shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Nienburg (Weser) & Umkreis &bull; von Nikolai</span>
+              <span>Nienburg (Weser) & 50 km Umkreis &bull; von Nikolai</span>
             </div>
 
             {/* Main Headline */}
@@ -116,6 +128,7 @@ export const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base sm:text-lg shadow-xl shadow-emerald-600/25 transition-all hover:scale-105 text-center"
+                title="Foto per WhatsApp an Nikolai für Festpreis schicken"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Foto per WhatsApp</span>
@@ -125,6 +138,7 @@ export const Hero = () => {
               <a
                 href={`tel:${BRAND_DATA.phone}`}
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-base sm:text-lg border-2 border-slate-300 hover:border-brand-teal-500 shadow-sm transition-all text-center"
+                title="Nikolai direkt anrufen"
               >
                 <Phone className="w-5 h-5 text-brand-teal-600" />
                 <span>{BRAND_DATA.phoneFormatted}</span>

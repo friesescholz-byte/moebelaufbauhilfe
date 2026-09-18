@@ -74,6 +74,7 @@ export const GallerySection = () => {
               <img
                 src={img.url}
                 alt={img.alt}
+                title={img.title || img.alt}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
@@ -113,8 +114,10 @@ export const GallerySection = () => {
             <div className="flex-1 max-h-[72vh] bg-slate-950 flex items-center justify-center p-2">
               <img
                 src={selectedImg}
-                alt="Möbelaufbauhilfe Nienburg - Großansicht"
+                alt="Möbelaufbauhilfe Nienburg - Großansicht fertig montierter Möbel"
+                title="Möbelaufbauhilfe Nienburg - Großansicht"
                 className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl"
+                decoding="async"
               />
             </div>
 

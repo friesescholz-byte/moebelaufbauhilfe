@@ -24,8 +24,11 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3">
               <img 
                 src={BRAND_DATA.logoUrl} 
-                alt="Möbelaufbauhilfe Logo" 
+                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolai" 
+                title="Möbelaufbauhilfe Nienburg – Ihr Handwerker vor Ort"
                 className="w-11 h-11 rounded-full border border-slate-700 bg-white p-0.5"
+                loading="lazy"
+                decoding="async"
               />
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-base tracking-tight">

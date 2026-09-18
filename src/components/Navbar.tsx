@@ -30,8 +30,10 @@ export const Navbar = () => {
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brand-teal-500 shadow-sm bg-white flex items-center justify-center p-0.5 transition-transform group-hover:scale-105 flex-shrink-0">
               <img 
                 src={BRAND_DATA.logoUrl} 
-                alt="Möbelaufbauhilfe Nienburg Logo" 
+                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolai" 
+                title="Möbelaufbauhilfe Nienburg Logo"
                 className="w-full h-full object-contain"
+                loading="eager"
               />
             </div>
             <div className="flex flex-col whitespace-nowrap">

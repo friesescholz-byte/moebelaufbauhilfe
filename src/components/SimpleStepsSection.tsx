@@ -82,8 +82,11 @@ export const SimpleStepsSection = () => {
               <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] sm:aspect-square bg-slate-900 relative group">
                 <img
                   src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-6508346_ergebnis.webp"
-                  alt="Nikolai - Möbelaufbauhilfe Nienburg"
+                  alt="Nikolai – Professioneller Möbelaufbau und Montageservice Nienburg"
+                  title="Nikolai – Ihr zuverlässiger Möbelmonteur aus Nienburg"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
