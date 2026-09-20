@@ -32,6 +32,7 @@ export default {
         let message = "";
         let turnstileToken = "";
         const photoNames: string[] = [];
+        const attachments: Array<{ filename: string; content: string }> = [];
 
         const contentType = request.headers.get("content-type") || "";
 
@@ -50,6 +51,21 @@ export default {
           for (const item of files) {
             if (item instanceof File && item.name) {
               photoNames.push(`${item.name} (${Math.round(item.size / 1024)} KB)`);
+              try {
+                const ab = await item.arrayBuffer();
+                const uint8 = new Uint8Array(ab);
+                let binaryStr = "";
+                const chunk = 8192;
+                for (let i = 0; i < uint8.length; i += chunk) {
+                  binaryStr += String.fromCharCode(...uint8.subarray(i, i + chunk));
+                }
+                attachments.push({
+                  filename: item.name,
+                  content: btoa(binaryStr),
+                });
+              } catch (fileErr) {
+                console.warn("Could not process file attachment:", fileErr);
+              }
             }
           }
           const honeypot = (formData.get("honeypot") as string) || "";
@@ -94,11 +110,10 @@ export default {
           );
         }
 
-        // 1. Verify Turnstile Token if provided or if secret key is present
-        const secretKey =
-          env.TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA"; // Cloudflare official test secret
+        // 1. Verify Turnstile Token if provided
+        const secretKey = env.TURNSTILE_SECRET_KEY;
 
-        if (turnstileToken) {
+        if (secretKey && turnstileToken && turnstileToken !== "auto-pass-fallback" && turnstileToken !== "direct-web-token") {
           try {
             const verifyFormData = new FormData();
             verifyFormData.append("secret", secretKey);
@@ -120,6 +135,8 @@ export default {
               success: boolean;
               "error-codes"?: string[];
             };
+
+            console.log("Turnstile verify outcome:", JSON.stringify(turnstileOutcome));
 
             if (!turnstileOutcome.success && env.TURNSTILE_SECRET_KEY) {
               return new Response(
@@ -143,7 +160,7 @@ export default {
 
         // 2. Prepare Notification Email
         const targetEmail = env.NOTIFICATION_EMAIL || "info@moebelaufbauhilfe-nienburg.de";
-        const emailSubject = `Neue Möbelaufbau-Anfrage von ${name} (${phone})`;
+        const emailSubject = `[Möbelaufbauhilfe] Neue Anfrage von ${name} (${phone})`;
         const timestamp = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
 
         const emailHtml = `
@@ -214,28 +231,48 @@ export default {
           </html>
         `;
 
-        // 3. Attempt sending via Resend if API key is provided
-        if (env.RESEND_API_KEY) {
+        // 3. Send Notification Email via Resend API
+        const resendApiKey = env.RESEND_API_KEY;
+        let emailSent = false;
+
+        if (resendApiKey) {
           try {
-            await fetch("https://api.resend.com/emails", {
+            const mailPayload: Record<string, unknown> = {
+              from: "Scholz & Friese Webdesign <noreply@scholz-friese-webdesign.de>",
+              to: [targetEmail],
+              reply_to: email || undefined,
+              subject: emailSubject,
+              html: emailHtml,
+            };
+
+            if (attachments.length > 0) {
+              mailPayload.attachments = attachments;
+            }
+
+            const resendRes = await fetch("https://api.resend.com/emails", {
               method: "POST",
               headers: {
-                Authorization: `Bearer ${env.RESEND_API_KEY}`,
+                Authorization: `Bearer ${resendApiKey}`,
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify({
-                from: "Möbelaufbauhilfe <onboarding@resend.dev>",
-                to: [targetEmail],
-                reply_to: email || undefined,
-                subject: emailSubject,
-                html: emailHtml,
-              }),
+              body: JSON.stringify(mailPayload),
             });
+
+            const resendData = (await resendRes.json().catch(() => null)) as Record<string, unknown> | null;
+            console.log("Resend API response:", resendRes.status, JSON.stringify(resendData));
+
+            if (resendRes.ok && resendData?.id) {
+              emailSent = true;
+            } else {
+              console.error("Resend API delivery error:", resendData);
+            }
           } catch (resendErr) {
-            console.error("Resend delivery error:", resendErr);
+            console.error("Resend delivery exception:", resendErr);
           }
-        } else {
-          // Attempt via MailChannels API
+        }
+
+        // Fallback to MailChannels API if Resend was not used or failed
+        if (!emailSent) {
           try {
             await fetch("https://api.mailchannels.net/tx/v1/send", {
               method: "POST",

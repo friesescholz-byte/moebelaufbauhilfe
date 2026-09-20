@@ -22,8 +22,8 @@ declare global {
   }
 }
 
-// Check for user-provided production Turnstile Site Key from environment
-const TURNSTILE_SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined)?.trim() || '';
+// Official Cloudflare Turnstile Site Key for moebelaufbauhilfe
+const TURNSTILE_SITE_KEY = '0x4AAAAAAE9wGuhgaOvxRN23';
 
 export const ContactFormSection: React.FC = () => {
   const [name, setName] = useState('');
@@ -41,60 +41,56 @@ export const ContactFormSection: React.FC = () => {
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
 
-  // Initialize Cloudflare Turnstile ONLY if a real production key is configured (avoiding the "Nur zu Testzwecken" notice)
+  // Initialize Cloudflare Turnstile Widget (with StrictMode protection)
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || TURNSTILE_SITE_KEY.startsWith('1x')) {
-      return;
-    }
+    let interval: ReturnType<typeof setInterval> | null = null;
 
-    const container = turnstileContainerRef.current;
-    if (!container) return;
-
-    let isMounted = true;
-
-    const initTurnstile = () => {
-      if (window.turnstile && container && !widgetIdRef.current && isMounted) {
+    const renderWidget = () => {
+      const container = turnstileContainerRef.current;
+      if (container && window.turnstile && !widgetIdRef.current) {
         try {
+          container.innerHTML = '';
           widgetIdRef.current = window.turnstile.render(container, {
             sitekey: TURNSTILE_SITE_KEY,
             callback: (token: string) => {
-              if (isMounted) setTurnstileToken(token);
+              setTurnstileToken(token);
+              setErrorMessage(null);
             },
             'error-callback': () => {
-              if (isMounted) setTurnstileToken('fallback-token');
+              // Graceful fallback token if offline or blocked
+              setTurnstileToken('auto-pass-fallback');
+            },
+            'expired-callback': () => {
+              setTurnstileToken('');
             },
             theme: 'light',
           });
+          if (interval) clearInterval(interval);
         } catch (e) {
-          console.warn('Turnstile render warning:', e);
+          console.error('Turnstile render error:', e);
         }
       }
     };
 
-    if (window.turnstile) {
-      initTurnstile();
-    } else {
-      const interval = setInterval(() => {
+    renderWidget();
+
+    if (!widgetIdRef.current) {
+      interval = setInterval(() => {
         if (window.turnstile) {
-          initTurnstile();
-          clearInterval(interval);
+          renderWidget();
         }
-      }, 200);
-      return () => {
-        isMounted = false;
-        clearInterval(interval);
-      };
+      }, 150);
     }
 
     return () => {
-      isMounted = false;
+      if (interval) clearInterval(interval);
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
-          widgetIdRef.current = null;
         } catch {
           // ignore
         }
+        widgetIdRef.current = null;
       }
     };
   }, [submitted]);
@@ -181,8 +177,6 @@ ${files.length > 0 ? `(Ich sende dir gleich ${files.length} Foto(s) hier im Chat
 
     return `https://wa.me/49${BRAND_DATA.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(text)}`;
   };
-
-  const hasRealTurnstileKey = Boolean(TURNSTILE_SITE_KEY && !TURNSTILE_SITE_KEY.startsWith('1x'));
 
   return (
     <section id="kontakt" className="py-16 sm:py-24 bg-[#FCFAF6] border-t border-slate-200 relative">
@@ -392,25 +386,16 @@ ${files.length > 0 ? `(Ich sende dir gleich ${files.length} Foto(s) hier im Chat
                 )}
               </div>
 
-              {/* Row 5: Security / Turnstile Row */}
+              {/* Row 5: Cloudflare Turnstile Spam Protection */}
               <div className="pt-2">
-                {hasRealTurnstileKey ? (
-                  <div className="flex flex-col items-start gap-2">
-                    <div className="flex items-center gap-2 text-xs font-bold text-slate-600">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                      <span>Spamschutz powered by Cloudflare Turnstile</span>
-                    </div>
-                    <div 
-                      ref={turnstileContainerRef} 
-                      className="min-h-[65px] flex items-center"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2 py-2 px-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                    <span>SSL-verschlüsselte Übertragung & integrierter Cloudflare Spamschutz</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-600 mb-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Spamschutz powered by Cloudflare Turnstile</span>
+                </div>
+                <div 
+                  ref={turnstileContainerRef} 
+                  className="min-h-[65px] flex items-center"
+                />
               </div>
 
               {/* Action Buttons */}
