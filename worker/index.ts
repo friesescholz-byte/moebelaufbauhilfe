@@ -142,7 +142,7 @@ export default {
         }
 
         // 2. Prepare Notification Email
-        const targetEmail = env.NOTIFICATION_EMAIL || "friese.scholz@gmail.com";
+        const targetEmail = env.NOTIFICATION_EMAIL || "info@moebelaufbauhilfe-nienburg.de";
         const emailSubject = `Neue Möbelaufbau-Anfrage von ${name} (${phone})`;
         const timestamp = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
 
@@ -241,7 +241,7 @@ export default {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                personalizations: [{ to: [{ email: targetEmail, name: "Scholz & Friese" }] }],
+                personalizations: [{ to: [{ email: targetEmail, name: "Nikolei Minko" }] }],
                 from: {
                   email: "kontakt@moebelaufbauhilfe.friese-scholz.workers.dev",
                   name: "Möbelaufbauhilfe Nienburg",

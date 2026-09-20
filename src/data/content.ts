@@ -5,7 +5,7 @@ export const BRAND_DATA = {
   subline: "Schnell. Sauber. Stressfrei.",
   phone: "01575 6311853",
   phoneFormatted: "01575 / 631 18 53",
-  email: "Moebelaufbauhilfe@gmx.de",
+  email: "info@moebelaufbauhilfe-nienburg.de",
   facebookUrl: "https://www.facebook.com/groups/700527746397398/",
   location: "Nienburg (Weser) & Landkreis",
   logoUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/Logo_M%C3%B6belaufbauhilfe.webp",
