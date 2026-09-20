@@ -168,7 +168,7 @@ export default {
             <div class="card">
               <div class="header">
                 <h2 style="margin: 0; font-size: 22px;">Neuer Montageauftrag / Anfrage</h2>
-                <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Möbelaufbauhilfe Nienburg • von Nikolai</div>
+                <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Möbelaufbauhilfe Nienburg • Nikolei Minko</div>
               </div>
               <div class="content">
                 <div class="field">

@@ -6,17 +6,17 @@ const HERO_SLIDES = [
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
     alt: "IKEA PAX Kleiderschrank und Schrankwand fachgerecht montiert in Nienburg Weser",
-    title: "IKEA PAX Kleiderschrank Montage Nienburg – Möbelaufbauhilfe Nikolai"
+    title: "IKEA PAX Kleiderschrank Montage Nienburg – Möbelaufbauhilfe Nikolei Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
     alt: "Spielturm und Klettergerüst für Kinder im Garten aufgebaut – Möbelaufbauhilfe Nienburg",
-    title: "Garten Spielturm Montage Landkreis Nienburg – Nikolai"
+    title: "Garten Spielturm Montage Landkreis Nienburg – Nikolei Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
     alt: "Möbelaufbau vor Ort beim Kunden in Nienburg Weser und 50 km Umkreis",
-    title: "Fachgerechter Möbelaufbau vor Ort in Nienburg"
+    title: "Fachgerechter Möbelaufbau vor Ort in Nienburg – Nikolei Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
@@ -46,7 +46,7 @@ export const Hero = () => {
       {/* Background Slideshow Canvas on Right Half with Cinematic Ultra-Smooth Blend */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         
-        {/* Cinematic Crossfading Background Images */}
+        {/* Cinematic Crossfading Background Images with High Performance attributes */}
         {HERO_SLIDES.map((slide, idx) => {
           const isActive = currentSlide === idx;
           return (
@@ -64,6 +64,7 @@ export const Hero = () => {
                   isActive ? 'scale-100 translate-x-0' : 'scale-108 translate-x-2'
                 }`}
                 loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "low"}
                 decoding="async"
               />
             </div>
@@ -89,10 +90,10 @@ export const Hero = () => {
           {/* Left Text & Conversion Column */}
           <div className="lg:col-span-7 flex flex-col items-start pt-2 lg:pt-0">
             
-            {/* Region Eyebrow */}
+            {/* Region Eyebrow (Clean without • von Nikolai) */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal-50 border border-brand-teal-200/80 text-brand-teal-800 text-sm font-extrabold mb-5 shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Nienburg (Weser) & 50 km Umkreis &bull; von Nikolai</span>
+              <span>Nienburg (Weser) & 50 km Umkreis</span>
             </div>
 
             {/* Main Headline */}
@@ -128,7 +129,7 @@ export const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base sm:text-lg shadow-xl shadow-emerald-600/25 transition-all hover:scale-105 text-center"
-                title="Foto per WhatsApp an Nikolai für Festpreis schicken"
+                title="Foto per WhatsApp an Nikolei Minko für Festpreis schicken"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Foto per WhatsApp</span>
@@ -138,7 +139,7 @@ export const Hero = () => {
               <a
                 href={`tel:${BRAND_DATA.phone}`}
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-base sm:text-lg border-2 border-slate-300 hover:border-brand-teal-500 shadow-sm transition-all text-center"
-                title="Nikolai direkt anrufen"
+                title="Nikolei Minko direkt anrufen"
               >
                 <Phone className="w-5 h-5 text-brand-teal-600" />
                 <span>{BRAND_DATA.phoneFormatted}</span>

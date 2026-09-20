@@ -62,7 +62,7 @@ export const ServicesSection = () => {
 
                 {/* Big Direct Card CTA */}
                 <a
-                  href={`https://wa.me/4915756311853?text=Hallo%20Nikolai%2C%20ich%20m%C3%B6chte%20einen%20Preis%20f%C3%BCr%20folgende%20Leistung%20anfragen%3A%20${encodeURIComponent(service.title)}`}
+                  href={`https://wa.me/4915756311853?text=Hallo%20Nikolei%2C%20ich%20m%C3%B6chte%20einen%20Preis%20f%C3%BCr%20folgende%20Leistung%20anfragen%3A%20${encodeURIComponent(service.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-brand-teal-50 hover:bg-brand-teal-500 text-brand-teal-800 hover:text-white border-2 border-brand-teal-300 hover:border-brand-teal-500 font-black text-base shadow-sm transition-all"

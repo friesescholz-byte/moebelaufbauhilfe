@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3">
               <img 
                 src={BRAND_DATA.logoUrl} 
-                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolai" 
+                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolei Minko" 
                 title="Möbelaufbauhilfe Nienburg – Ihr Handwerker vor Ort"
                 className="w-11 h-11 rounded-full border border-slate-700 bg-white p-0.5"
                 loading="lazy"
@@ -151,11 +151,19 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar with Agentur Scholz & Friese Credit */}
         <div className="pt-8 mt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} Möbelaufbauhilfe Nienburg – von Nikolai. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} Möbelaufbauhilfe Nienburg – von Nikolei Minko. Alle Rechte vorbehalten.
           </div>
           <div className="flex items-center gap-1.5 text-slate-400">
             <span>Konzipiert & gestaltet von</span>
-            <span className="font-bold text-slate-200">Scholz & Friese Webdesign</span>
+            <a 
+              href="https://scholz-friese-webdesign.de/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-bold text-slate-200 hover:text-brand-teal-400 transition-colors underline-offset-4 hover:underline"
+              title="Scholz & Friese Webdesign – Premium Webdesign Agentur"
+            >
+              Scholz & Friese Webdesign
+            </a>
           </div>
         </div>
 

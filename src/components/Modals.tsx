@@ -47,7 +47,7 @@ const BaseModal: React.FC<ModalProps> = ({ isOpen, onClose, title, badge, childr
         {/* Footer */}
         <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
           <div className="text-xs text-slate-500 font-semibold">
-            Möbelaufbauhilfe Nienburg &bull; von Nikolai
+            Möbelaufbauhilfe Nienburg &bull; von Nikolei Minko
           </div>
           <button
             onClick={onClose}
@@ -68,7 +68,7 @@ export const ImpressumModal: React.FC<{ isOpen: boolean; onClose: () => void }> 
         <h4 className="font-black text-slate-950 text-base">Angaben gemäß § 5 TMG / § 18 MStV:</h4>
         <p className="font-semibold text-slate-800">
           <strong>Möbelaufbauhilfe Nienburg</strong><br />
-          Inhaber: Nikolai<br />
+          Inhaber: Nikolei Minko<br />
           Einsatzgebiet: Stadt & Landkreis Nienburg (Weser) sowie bis zu 50 km Umkreis<br />
           Deutschland
         </p>
@@ -125,7 +125,7 @@ export const DatenschutzModal: React.FC<{ isOpen: boolean; onClose: () => void }
         <p className="text-slate-700 text-sm leading-relaxed">
           Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO):<br />
           <strong>Möbelaufbauhilfe Nienburg</strong><br />
-          Inhaber: Nikolai<br />
+          Inhaber: Nikolei Minko<br />
           Standort: 31582 Nienburg (Weser)<br />
           Telefon & WhatsApp: {BRAND_DATA.phoneFormatted}<br />
           E-Mail: {BRAND_DATA.email}

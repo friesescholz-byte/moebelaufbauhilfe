@@ -9,7 +9,7 @@ export const TestimonialsFAQ = () => {
     {
       name: "Marcus & Sabine",
       town: "Nienburg",
-      text: "Großer 3-Meter IKEA PAX Schrank aufgebaut. Nikolai war pünktlich, freundlich und der Schrank steht perfekt gerade. Absolut top!",
+      text: "Großer 3-Meter IKEA PAX Schrank aufgebaut. Nikolei war pünktlich, freundlich und der Schrank steht perfekt gerade. Absolut top!",
       stars: 5
     },
     {
@@ -27,7 +27,7 @@ export const TestimonialsFAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-[#FAF8F5]">
+    <section id="bewertungen" className="py-16 sm:py-24 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Customer Feedback */}
@@ -64,10 +64,13 @@ export const TestimonialsFAQ = () => {
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto">
+        {/* FAQ Section with direct anchor #faq and scroll-margin */}
+        <div id="faq" className="max-w-3xl mx-auto scroll-mt-28">
           
           <div className="text-center mb-10">
+            <div className="text-sm font-extrabold text-brand-teal-700 uppercase tracking-wider mb-2">
+              Antworten auf einen Blick
+            </div>
             <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
               Häufige Fragen
             </h3>
@@ -86,7 +89,8 @@ export const TestimonialsFAQ = () => {
                 >
                   <button
                     onClick={() => setOpenIdx(isOpen ? null : index)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-950 text-lg sm:text-xl hover:text-brand-teal-600"
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-950 text-lg sm:text-xl hover:text-brand-teal-600 cursor-pointer"
+                    aria-expanded={isOpen}
                   >
                     <span>{faq.q}</span>
                     <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 transition-transform ${isOpen ? 'rotate-180 bg-brand-teal-50 text-brand-teal-600' : ''}`}>
@@ -117,14 +121,16 @@ export const TestimonialsFAQ = () => {
                 href={BRAND_DATA.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow transition-all hover:scale-105"
+                title="Nikolei per WhatsApp kontaktieren"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>WhatsApp Nachricht</span>
               </a>
               <a
                 href={`tel:${BRAND_DATA.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 text-white font-extrabold text-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all"
+                title="Nikolei telefonisch anrufen"
               >
                 <Phone className="w-4 h-4" />
                 <span>{BRAND_DATA.phoneFormatted}</span>
