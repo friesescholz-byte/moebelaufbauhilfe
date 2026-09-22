@@ -78,6 +78,8 @@ export const GallerySection = () => {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
+                width={350}
+                height={380}
               />
 
               {/* Hover Zoom Overlay */}

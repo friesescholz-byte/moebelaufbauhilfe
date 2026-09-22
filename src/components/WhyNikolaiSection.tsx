@@ -118,6 +118,10 @@ export const WhyNikolaiSection = () => {
                 src={BRAND_DATA.logoUrl} 
                 alt="Möbelaufbauhilfe" 
                 className="w-12 h-12 rounded-full border border-slate-200"
+                loading="lazy"
+                decoding="async"
+                width={48}
+                height={48}
               />
               <div>
                 <div className="font-bold text-sm text-slate-900">Möbelaufbauhilfe Nienburg – Nikolai Minko</div>

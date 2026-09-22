@@ -29,6 +29,8 @@ export const Footer: React.FC<FooterProps> = ({
                 className="w-11 h-11 rounded-full border border-slate-700 bg-white p-0.5"
                 loading="lazy"
                 decoding="async"
+                width={44}
+                height={44}
               />
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-base tracking-tight">

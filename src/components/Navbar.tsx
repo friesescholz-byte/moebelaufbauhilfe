@@ -34,6 +34,9 @@ export const Navbar = () => {
                 title="Möbelaufbauhilfe Nienburg Logo"
                 className="w-full h-full object-contain"
                 loading="eager"
+                decoding="async"
+                width={48}
+                height={48}
               />
             </div>
             <div className="flex flex-col whitespace-nowrap">
