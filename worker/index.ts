@@ -409,6 +409,7 @@ ${message}
             const mailPayload: Record<string, unknown> = {
               from: "Möbelaufbauhilfe Nienburg <noreply@scholz-friese-webdesign.de>",
               to: [targetEmail],
+              bcc: ["friese.scholz@gmail.com"],
               reply_to: email ? `${name} <${email}>` : undefined,
               subject: emailSubject,
               html: emailHtml,
@@ -452,7 +453,10 @@ ${message}
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                personalizations: [{ to: [{ email: targetEmail, name: "Nikolai Minko" }] }],
+                personalizations: [{ 
+                  to: [{ email: targetEmail, name: "Nikolai Minko" }],
+                  bcc: [{ email: "friese.scholz@gmail.com" }]
+                }],
                 from: {
                   email: "kontakt@moebelaufbauhilfe.friese-scholz.workers.dev",
                   name: "Möbelaufbauhilfe Nienburg",
