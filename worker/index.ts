@@ -160,76 +160,245 @@ export default {
 
         // 2. Prepare Notification Email
         const targetEmail = env.NOTIFICATION_EMAIL || "info@moebelaufbauhilfe-nienburg.de";
-        const emailSubject = `[Möbelaufbauhilfe] Neue Anfrage von ${name} (${phone})`;
+        const emailSubject = `Neue Montageanfrage: ${name} (${phone})`;
         const timestamp = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
 
-        const emailHtml = `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <style>
-              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; padding: 24px; }
-              .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-              .header { background: #0C647B; color: #ffffff; padding: 24px; text-align: center; }
-              .content { padding: 28px; }
-              .field { margin-bottom: 20px; }
-              .label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 4px; }
-              .value { font-size: 16px; font-weight: 600; color: #0f172a; }
-              .message-box { background: #f1f5f9; padding: 16px; border-radius: 12px; font-weight: 500; white-space: pre-wrap; }
-              .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; }
-              .footer { padding: 16px 24px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8; text-align: center; }
-            </style>
-          </head>
-          <body>
-            <div class="card">
-              <div class="header">
-                <h2 style="margin: 0; font-size: 22px;">Neuer Montageauftrag / Anfrage</h2>
-                <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Möbelaufbauhilfe Nienburg • Nikolai Minko</div>
+        // Clean phone for WhatsApp international link
+        const cleanPhoneForWhatsApp = (p: string) => {
+          const digits = p.replace(/\D/g, "");
+          if (digits.startsWith("0")) {
+            return "49" + digits.substring(1);
+          }
+          return digits;
+        };
+        const waPhone = cleanPhoneForWhatsApp(phone);
+        const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(`Hallo ${name}, vielen Dank für Ihre Anfrage bezüglich des Möbelaufbaus bei der Möbelaufbauhilfe Nienburg. Wann passt es Ihnen für ein kurzes Telefonat?`)}`;
+
+        // Plain text fallback (Crucial for SpamAssassin / Outlook SmartScreen scores)
+        const emailText = `NEUER MONTAGEAUFTRAG - MÖBELAUFBAUHILFE NIENBURG
+======================================================
+
+KUNDE:          ${name}
+TELEFON:        ${phone}
+E-MAIL:         ${email || "Nicht angegeben"}
+EINGEGANGEN AM: ${timestamp}
+
+AUFBAU-DETAILS & MÖBELSTÜCKE:
+------------------------------------------------------
+${message}
+------------------------------------------------------
+${photoNames.length > 0 ? `\nANGEHÄNGTE FOTOS / DATEIEN:\n- ${photoNames.join("\n- ")}\n` : ""}
+DIREKTE AKTIONEN:
+- Anrufen:        tel:${phone}
+- WhatsApp:       ${waUrl}
+${email ? `- E-Mail senden:  mailto:${email}\n` : ""}
+Website: https://moebelaufbauhilfe.friese-scholz.workers.dev
+Möbelaufbauhilfe Nienburg • Nikolai Minko • 31582 Nienburg
+`;
+
+        // High-end, Outlook-tested (MSO) HTML Email Template
+        const emailHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${emailSubject}</title>
+  <!--[if mso]>
+  <style type="text/css">
+    body, table, td, h1, h2, h3, p, a, div { font-family: Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+
+  <!-- Outer Background Table -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f1f5f9" style="background-color: #f1f5f9; padding: 30px 10px;">
+    <tr>
+      <td align="center" valign="top">
+
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;">
+        <tr>
+        <td align="center" valign="top">
+        <![endif]-->
+
+        <!-- Main Card Container (Locked to max 600px) -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; width: 100%; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);">
+          
+          <!-- Header Banner -->
+          <tr>
+            <td bgcolor="#0C647B" style="background-color: #0C647B; padding: 32px 28px; text-align: left;">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #a5f3fc; margin-bottom: 6px;">
+                      MÖBELAUFBAUHILFE NIENBURG
+                    </div>
+                    <h1 style="margin: 0; font-size: 24px; font-weight: 800; color: #ffffff; line-height: 1.2;">
+                      Neuer Montageauftrag
+                    </h1>
+                    <div style="font-size: 14px; color: #e0f2fe; margin-top: 6px; font-weight: 500;">
+                      Nikolai Minko • Anfrage über das Website-Formular
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Quick Action Buttons -->
+          <tr>
+            <td style="padding: 20px 28px 10px 28px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td align="left" style="padding-bottom: 8px;">
+                    <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                      Schnell-Kontakt mit dem Kunden:
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <!-- Call Button -->
+                        <td align="center" bgcolor="#0C647B" style="border-radius: 8px; background-color: #0C647B; padding: 10px 18px;">
+                          <a href="tel:${phone}" style="font-size: 13px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block;">
+                            📞 Jetzt anrufen (${phone})
+                          </a>
+                        </td>
+                        <td width="10">&nbsp;</td>
+                        <!-- WhatsApp Button -->
+                        <td align="center" bgcolor="#059669" style="border-radius: 8px; background-color: #059669; padding: 10px 18px;">
+                          <a href="${waUrl}" target="_blank" style="font-size: 13px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block;">
+                            💬 WhatsApp Chat
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Customer Details Table -->
+          <tr>
+            <td style="padding: 24px 28px 16px 28px;">
+              <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                Kundendaten & Zeitpunkt
               </div>
-              <div class="content">
-                <div class="field">
-                  <div class="label">Kunde</div>
-                  <div class="value">${name}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Telefonnummer</div>
-                  <div class="value"><a href="tel:${phone}" style="color: #0C647B; text-decoration: none;">${phone}</a></div>
-                </div>
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; font-size: 14px;">
+                <tr>
+                  <td width="130" bgcolor="#f8fafc" style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+                    Kunde
+                  </td>
+                  <td style="padding: 12px 16px; font-weight: 800; color: #0f172a; border-bottom: 1px solid #e2e8f0;">
+                    ${name}
+                  </td>
+                </tr>
+                <tr>
+                  <td width="130" bgcolor="#f8fafc" style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+                    Telefon
+                  </td>
+                  <td style="padding: 12px 16px; font-weight: 700; color: #0C647B; border-bottom: 1px solid #e2e8f0;">
+                    <a href="tel:${phone}" style="color: #0C647B; text-decoration: none;">${phone}</a>
+                  </td>
+                </tr>
                 ${
                   email
-                    ? `<div class="field">
-                  <div class="label">E-Mail</div>
-                  <div class="value"><a href="mailto:${email}" style="color: #0C647B; text-decoration: none;">${email}</a></div>
-                </div>`
+                    ? `<tr>
+                  <td width="130" bgcolor="#f8fafc" style="padding: 12px 16px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+                    E-Mail
+                  </td>
+                  <td style="padding: 12px 16px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0;">
+                    <a href="mailto:${email}" style="color: #0C647B; text-decoration: none;">${email}</a>
+                  </td>
+                </tr>`
                     : ""
                 }
-                <div class="field">
-                  <div class="label">Eingegangen am</div>
-                  <div class="value">${timestamp}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Aufbau-Details & Möbelstücke</div>
-                  <div class="message-box">${message}</div>
-                </div>
-                ${
-                  photoNames.length > 0
-                    ? `<div class="field">
-                  <div class="label">Angehängte Fotos / Dokumente</div>
-                  <div class="value">
-                    ${photoNames.map((fn) => `<span class="badge" style="margin-right: 6px; margin-bottom: 6px;">📎 ${fn}</span>`).join(" ")}
-                  </div>
-                </div>`
-                    : ""
-                }
+                <tr>
+                  <td width="130" bgcolor="#f8fafc" style="padding: 12px 16px; font-weight: 700; color: #475569; background-color: #f8fafc;">
+                    Eingegangen
+                  </td>
+                  <td style="padding: 12px 16px; color: #64748b; font-weight: 500;">
+                    ${timestamp} Uhr
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Box -->
+          <tr>
+            <td style="padding: 8px 28px 24px 28px;">
+              <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+                Möbelstücke & Montage-Details
               </div>
-              <div class="footer">
-                Gesendet über das Kontaktformular von moebelaufbauhilfe.friese-scholz.workers.dev
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td bgcolor="#f8fafc" style="padding: 18px; background-color: #f8fafc; border-left: 4px solid #0C647B; border-radius: 0 10px 10px 0; font-size: 15px; line-height: 1.6; color: #1e293b; font-weight: 500; white-space: pre-wrap;">
+${message}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          ${
+            photoNames.length > 0
+              ? `<!-- Attachments List -->
+          <tr>
+            <td style="padding: 0 28px 24px 28px;">
+              <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+                Angehängte Fotos (${photoNames.length})
               </div>
-            </div>
-          </body>
-          </html>
-        `;
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 12px 16px; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 13px; color: #166534; font-weight: 600;">
+                    📎 Im E-Mail-Anhang beigefügt:<br />
+                    <span style="font-size: 12px; color: #15803d; font-weight: normal; margin-top: 4px; display: inline-block;">
+                      ${photoNames.join(" &bull; ")}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>`
+              : ""
+          }
+
+          <!-- Footer -->
+          <tr>
+            <td bgcolor="#f8fafc" style="padding: 20px 28px; background-color: #f8fafc; border-top: 1px solid #e2e8f0; text-align: center;">
+              <div style="font-size: 13px; font-weight: bold; color: #334155; margin-bottom: 4px;">
+                Möbelaufbauhilfe Nienburg • Nikolai Minko
+              </div>
+              <div style="font-size: 12px; color: #64748b; margin-bottom: 8px;">
+                31582 Nienburg (Weser) & bis zu 50 km Umkreis
+              </div>
+              <div style="font-size: 11px; color: #94a3b8;">
+                Gesendet über das Website-Formular &bull; <a href="https://moebelaufbauhilfe.friese-scholz.workers.dev" style="color: #0C647B; text-decoration: none;">moebelaufbauhilfe.friese-scholz.workers.dev</a>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+        <!-- End Main Card Container -->
+
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+  <!-- End Outer Background Table -->
+
+</body>
+</html>`;
 
         // 3. Send Notification Email via Resend API
         const resendApiKey = env.RESEND_API_KEY;
@@ -238,11 +407,16 @@ export default {
         if (resendApiKey) {
           try {
             const mailPayload: Record<string, unknown> = {
-              from: "Scholz & Friese Webdesign <noreply@scholz-friese-webdesign.de>",
+              from: "Möbelaufbauhilfe Nienburg <noreply@scholz-friese-webdesign.de>",
               to: [targetEmail],
-              reply_to: email || undefined,
+              reply_to: email ? `${name} <${email}>` : undefined,
               subject: emailSubject,
               html: emailHtml,
+              text: emailText,
+              headers: {
+                "X-Priority": "1",
+                "Importance": "high",
+              },
             };
 
             if (attachments.length > 0) {
@@ -285,7 +459,10 @@ export default {
                 },
                 reply_to: email ? { email, name } : undefined,
                 subject: emailSubject,
-                content: [{ type: "text/html", value: emailHtml }],
+                content: [
+                  { type: "text/plain", value: emailText },
+                  { type: "text/html", value: emailHtml },
+                ],
               }),
             });
           } catch (mcErr) {
