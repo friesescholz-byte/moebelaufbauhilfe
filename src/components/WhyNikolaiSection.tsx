@@ -93,7 +93,7 @@ export const WhyNikolaiSection = () => {
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-card">
           <div className="max-w-2xl mx-auto text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
-              Die 4 Qualitäts-Garantien von Nikolei
+              Die 4 Qualitäts-Garantien von Nikolai
             </h3>
             <p className="text-sm text-slate-500">
               Weil Vertrauen im Handwerk das Wichtigste ist.
@@ -120,7 +120,7 @@ export const WhyNikolaiSection = () => {
                 className="w-12 h-12 rounded-full border border-slate-200"
               />
               <div>
-                <div className="font-bold text-sm text-slate-900">Möbelaufbauhilfe Nienburg – Nikolei Minko</div>
+                <div className="font-bold text-sm text-slate-900">Möbelaufbauhilfe Nienburg – Nikolai Minko</div>
                 <div className="text-xs text-slate-500">Ihr verlässlicher Partner in der Nachbarschaft</div>
               </div>
             </div>

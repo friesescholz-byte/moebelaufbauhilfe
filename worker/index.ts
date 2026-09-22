@@ -185,7 +185,7 @@ export default {
             <div class="card">
               <div class="header">
                 <h2 style="margin: 0; font-size: 22px;">Neuer Montageauftrag / Anfrage</h2>
-                <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Möbelaufbauhilfe Nienburg • Nikolei Minko</div>
+                <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Möbelaufbauhilfe Nienburg • Nikolai Minko</div>
               </div>
               <div class="content">
                 <div class="field">
@@ -278,7 +278,7 @@ export default {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                personalizations: [{ to: [{ email: targetEmail, name: "Nikolei Minko" }] }],
+                personalizations: [{ to: [{ email: targetEmail, name: "Nikolai Minko" }] }],
                 from: {
                   email: "kontakt@moebelaufbauhilfe.friese-scholz.workers.dev",
                   name: "Möbelaufbauhilfe Nienburg",

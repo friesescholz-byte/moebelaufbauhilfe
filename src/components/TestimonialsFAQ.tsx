@@ -9,7 +9,7 @@ export const TestimonialsFAQ = () => {
     {
       name: "Marcus & Sabine",
       town: "Nienburg",
-      text: "Großer 3-Meter IKEA PAX Schrank aufgebaut. Nikolei war pünktlich, freundlich und der Schrank steht perfekt gerade. Absolut top!",
+      text: "Großer 3-Meter IKEA PAX Schrank aufgebaut. Nikolai war pünktlich, freundlich und der Schrank steht perfekt gerade. Absolut top!",
       stars: 5
     },
     {
@@ -122,7 +122,7 @@ export const TestimonialsFAQ = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow transition-all hover:scale-105"
-                title="Nikolei per WhatsApp kontaktieren"
+                title="Nikolai per WhatsApp kontaktieren"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>WhatsApp Nachricht</span>
@@ -130,7 +130,7 @@ export const TestimonialsFAQ = () => {
               <a
                 href={`tel:${BRAND_DATA.phone}`}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all"
-                title="Nikolei telefonisch anrufen"
+                title="Nikolai telefonisch anrufen"
               >
                 <Phone className="w-4 h-4" />
                 <span>{BRAND_DATA.phoneFormatted}</span>

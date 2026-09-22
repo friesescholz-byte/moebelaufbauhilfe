@@ -62,7 +62,7 @@ export const ExpressCalculator = () => {
   };
 
   const generateWhatsAppUrl = () => {
-    const text = `Hallo Nikolei! Ich möchte ein unverbindliches Festpreis-Angebot für meinen Möbelaufbau anfragen:
+    const text = `Hallo Nikolai! Ich möchte ein unverbindliches Festpreis-Angebot für meinen Möbelaufbau anfragen:
     
 📋 *Möbelart:* ${getSelectedFurnitureLabel()}
 🏷️ *Händler / Marke:* ${getSelectedBrandLabel()}
@@ -77,7 +77,7 @@ Bitte nenne mir den Festpreis und wann du Zeit hättest.`;
 
   const generateMailtoUrl = () => {
     const subject = `Möbelaufbau Anfrage - ${getSelectedFurnitureLabel()} in ${location}`;
-    const body = `Hallo Nikolei,\n\nich möchte ein Festpreis-Angebot anfragen:\n\nMöbelart: ${getSelectedFurnitureLabel()}\nMarke: ${getSelectedBrandLabel()}\nOrt: ${location}\nBesonderheiten: ${getSelectedExtrasLabels().join(', ')}\nNotizen: ${notes}\n\nBitte melden Sie sich bei mir.\n\nViele Grüße`;
+    const body = `Hallo Nikolai,\n\nich möchte ein Festpreis-Angebot anfragen:\n\nMöbelart: ${getSelectedFurnitureLabel()}\nMarke: ${getSelectedBrandLabel()}\nOrt: ${location}\nBesonderheiten: ${getSelectedExtrasLabels().join(', ')}\nNotizen: ${notes}\n\nBitte melden Sie sich bei mir.\n\nViele Grüße`;
     return `mailto:${BRAND_DATA.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -107,7 +107,7 @@ Bitte nenne mir den Festpreis und wann du Zeit hättest.`;
             Festpreis in 2 Minuten anfragen
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Wähle dein Möbelstück aus – schicke die Daten direkt per WhatsApp oder E-Mail an Nikolei Minko und erhalte blitzschnell dein unverbindliches Festpreisangebot!
+            Wähle dein Möbelstück aus – schicke die Daten direkt per WhatsApp oder E-Mail an Nikolai Minko und erhalte blitzschnell dein unverbindliches Festpreisangebot!
           </p>
         </div>
 

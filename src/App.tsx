@@ -9,7 +9,6 @@ import { ContactFormSection } from './components/ContactFormSection';
 import { TestimonialsFAQ } from './components/TestimonialsFAQ';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
-import { StickyMobileBar } from './components/StickyMobileBar';
 import { ImpressumModal, DatenschutzModal, BarrierefreiheitModal } from './components/Modals';
 
 export function App() {
@@ -41,9 +40,6 @@ export function App() {
         onOpenDatenschutz={() => setDatenschutzOpen(true)}
         onOpenBarrierefreiheit={() => setBarrierefreiheitOpen(true)}
       />
-
-      {/* Mobile Sticky Bar */}
-      <StickyMobileBar />
 
       {/* Legal Modals */}
       <ImpressumModal 

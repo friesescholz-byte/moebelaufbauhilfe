@@ -1,6 +1,6 @@
 export const BRAND_DATA = {
   name: "Möbelaufbauhilfe Nienburg",
-  owner: "Nikolei Minko",
+  owner: "Nikolai Minko",
   slogan: "Du bringst die Möbel – ich bringe das Werkzeug!",
   subline: "Schnell. Sauber. Stressfrei.",
   phone: "01575 6311853",
@@ -9,7 +9,7 @@ export const BRAND_DATA = {
   facebookUrl: "https://www.facebook.com/groups/700527746397398/",
   location: "Nienburg (Weser) & Landkreis",
   logoUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/Logo_M%C3%B6belaufbauhilfe.webp",
-  whatsappUrl: "https://wa.me/4915756311853?text=Hallo%20Nikolei%2C%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20einen%20M%C3%B6belaufbau%20in%20Nienburg%20und%20Umgebung.%20Hier%20sind%20die%20Details%3A"
+  whatsappUrl: "https://wa.me/4915756311853?text=Hallo%20Nikolai%2C%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20einen%20M%C3%B6belaufbau%20in%20Nienburg%20und%20Umgebung.%20Hier%20sind%20die%20Details%3A"
 };
 
 export const SIMPLE_SERVICES = [
@@ -19,7 +19,7 @@ export const SIMPLE_SERVICES = [
     desc: "Große Kleiderschränke, Schiebetüren & Kommoden. Alles gerade ausgerichtet, Türen schließen perfekt.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
     imageAlt: "Fachgerechter Aufbau von IKEA PAX Kleiderschränken in Nienburg Weser",
-    imageTitle: "IKEA PAX Schrank Montage Service Nienburg – Möbelaufbauhilfe Nikolei Minko",
+    imageTitle: "IKEA PAX Schrank Montage Service Nienburg – Möbelaufbauhilfe Nikolai Minko",
     badge: "Häufig gebucht",
     points: ["IKEA PAX, Poco, Roller & Co.", "Schiebetüren & Dämpfer", "Sicher an der Wand befestigt"]
   },
@@ -49,14 +49,14 @@ export const SIMPLE_SERVICES = [
     desc: "Sideboards, Esstische, TV-Halterungen, Wandregale und wetterfeste Gartenmöbel.",
     imageUrl: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/652123559_26236032182712559_2456315385345536829_n_ergebnis.webp",
     imageAlt: "Wohnwand, Hängeschränke und Sideboard Montage in Nienburg Weser",
-    imageTitle: "Wohnwand & Regalsysteme Montage im Lot – Möbelaufbauhilfe Nikolei Minko",
+    imageTitle: "Wohnwand & Regalsysteme Montage im Lot – Möbelaufbauhilfe Nikolai Minko",
     badge: "Wohnen & Garten",
     points: ["Exakt in der Waage", "Wandbohrungen & Dübel", "Garten-Lounges & Pavillons"]
   }
 ];
 
 export const ALL_GALLERY_IMAGES = [
-  // New Drive Projects (Authentic Real Works by Nikolei Minko)
+  // New Drive Projects (Authentic Real Works by Nikolai Minko)
   {
     id: "drive-1",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
@@ -96,8 +96,8 @@ export const ALL_GALLERY_IMAGES = [
   {
     id: "drive-7",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0015_ergebnis.webp",
-    alt: "Möbelaufbauhilfe Nienburg - Sauberes Montageergebnis von Handwerker Nikolei Minko",
-    title: "Fachgerechte Möbelmontage Ergebnis Nikolei Minko"
+    alt: "Möbelaufbauhilfe Nienburg - Sauberes Montageergebnis von Handwerker Nikolai Minko",
+    title: "Fachgerechte Möbelmontage Ergebnis Nikolai Minko"
   },
   // Authentic Finished Works
   {
@@ -158,7 +158,7 @@ export const ALL_GALLERY_IMAGES = [
     id: "img-10",
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-6508346_ergebnis.webp",
     alt: "Möbelaufbauhilfe Nienburg - Professionelles Handwerkswerkzeug für schnellen Aufbau",
-    title: "Eigenes Profi-Werkzeug von Nikolei Minko"
+    title: "Eigenes Profi-Werkzeug von Nikolai Minko"
   },
   {
     id: "img-11",

@@ -166,7 +166,7 @@ export const ContactFormSection: React.FC = () => {
   };
 
   const generateWhatsAppFromForm = () => {
-    const text = `Hallo Nikolei! Ich möchte eine Anfrage für einen Möbelaufbau stellen:
+    const text = `Hallo Nikolai! Ich möchte eine Anfrage für einen Möbelaufbau stellen:
 
 👤 *Name:* ${name || 'Nicht angegeben'}
 📞 *Telefon:* ${phone || 'Nicht angegeben'}

@@ -6,17 +6,17 @@ const HERO_SLIDES = [
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260813-WA0006_ergebnis.webp",
     alt: "IKEA PAX Kleiderschrank und Schrankwand fachgerecht montiert in Nienburg Weser",
-    title: "IKEA PAX Kleiderschrank Montage Nienburg – Möbelaufbauhilfe Nikolei Minko"
+    title: "IKEA PAX Kleiderschrank Montage Nienburg – Möbelaufbauhilfe Nikolai Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260319-WA0000_ergebnis.webp",
     alt: "Spielturm und Klettergerüst für Kinder im Garten aufgebaut – Möbelaufbauhilfe Nienburg",
-    title: "Garten Spielturm Montage Landkreis Nienburg – Nikolei Minko"
+    title: "Garten Spielturm Montage Landkreis Nienburg – Nikolai Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/drive/IMG-20260715-WA0000_ergebnis.webp",
     alt: "Möbelaufbau vor Ort beim Kunden in Nienburg Weser und 50 km Umkreis",
-    title: "Fachgerechter Möbelaufbau vor Ort in Nienburg – Nikolei Minko"
+    title: "Fachgerechter Möbelaufbau vor Ort in Nienburg – Nikolai Minko"
   },
   {
     url: "https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/566228463_24962822413366882_8069612601508198053_n_ergebnis.webp",
@@ -129,7 +129,7 @@ export const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base sm:text-lg shadow-xl shadow-emerald-600/25 transition-all hover:scale-105 text-center"
-                title="Foto per WhatsApp an Nikolei Minko für Festpreis schicken"
+                title="Foto per WhatsApp an Nikolai Minko für Festpreis schicken"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Foto per WhatsApp</span>
@@ -139,7 +139,7 @@ export const Hero = () => {
               <a
                 href={`tel:${BRAND_DATA.phone}`}
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-base sm:text-lg border-2 border-slate-300 hover:border-brand-teal-500 shadow-sm transition-all text-center"
-                title="Nikolei Minko direkt anrufen"
+                title="Nikolai Minko direkt anrufen"
               >
                 <Phone className="w-5 h-5 text-brand-teal-600" />
                 <span>{BRAND_DATA.phoneFormatted}</span>

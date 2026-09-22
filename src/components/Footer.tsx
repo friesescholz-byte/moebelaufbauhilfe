@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenBarrierefreiheit
 }) => {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-16 pb-28 sm:pb-16 border-t border-slate-800">
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-16 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3">
               <img 
                 src={BRAND_DATA.logoUrl} 
-                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolei Minko" 
+                alt="Möbelaufbauhilfe Nienburg Logo – von Nikolai Minko" 
                 title="Möbelaufbauhilfe Nienburg – Ihr Handwerker vor Ort"
                 className="w-11 h-11 rounded-full border border-slate-700 bg-white p-0.5"
                 loading="lazy"
@@ -151,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar with Agentur Scholz & Friese Credit */}
         <div className="pt-8 mt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} Möbelaufbauhilfe Nienburg – von Nikolei Minko. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} Möbelaufbauhilfe Nienburg – von Nikolai Minko. Alle Rechte vorbehalten.
           </div>
           <div className="flex items-center gap-1.5 text-slate-400">
             <span>Konzipiert & gestaltet von</span>

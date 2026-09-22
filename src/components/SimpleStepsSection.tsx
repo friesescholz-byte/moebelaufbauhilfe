@@ -77,14 +77,14 @@ export const SimpleStepsSection = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Clean Image Box (Without overlay badges) */}
+            {/* Clean Image Box (Portrait / Smartphone format) */}
             <div className="lg:col-span-5 relative">
-              <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] sm:aspect-square bg-slate-900 relative group">
+              <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[3/4] sm:aspect-[4/5] max-w-sm mx-auto lg:max-w-none bg-slate-900 relative group">
                 <img
-                  src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/pexels-artbovich-6508346_ergebnis.webp"
-                  alt="Nikolei Minko – Professioneller Möbelaufbau und Montageservice Nienburg"
-                  title="Nikolei Minko – Ihr zuverlässiger Möbelmonteur aus Nienburg"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/moebelaufbauhilfe/Nikolei_Minko_01.webp"
+                  alt="Nikolai Minko – Professioneller Möbelaufbau und Montageservice Nienburg"
+                  title="Nikolai Minko – Ihr zuverlässiger Möbelmonteur aus Nienburg"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                   decoding="async"
                 />
@@ -100,7 +100,7 @@ export const SimpleStepsSection = () => {
               </div>
 
               <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight leading-tight mb-4">
-                Hallo, ich bin Nikolei Minko – <br />
+                Hallo, ich bin Nikolai Minko – <br />
                 <span className="text-[#0C647B]">Ihr Möbelmonteur aus Nienburg.</span>
               </h3>
 

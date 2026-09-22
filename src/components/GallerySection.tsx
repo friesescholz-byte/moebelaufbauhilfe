@@ -125,7 +125,7 @@ export const GallerySection = () => {
             <div className="p-5 sm:p-6 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
               <div>
                 <div className="font-extrabold text-base sm:text-lg text-slate-950">
-                  Möbelaufbauhilfe Nienburg – Nikolei Minko
+                  Möbelaufbauhilfe Nienburg – Nikolai Minko
                 </div>
                 <div className="text-xs text-slate-500 font-semibold">
                   Schnell. Sauber. Stressfrei.
